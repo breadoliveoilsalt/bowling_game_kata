@@ -27,27 +27,42 @@ RSpec.describe BowlingGame do
 		it "adds up the score of two frames without a strike or spare" do
 			frames = [
 				["1", "2"],
-				["3", "7"]
+				["3", "5"]
 			]
-			expect(@game.get_score(frames)).to eq("13")
+			expect(@game.get_score(frames)).to eq("11")
 		end
 		
 		it "adds up the score of ten frames without a strike or spare" do
 			frames = [
-				["1", "2"],
-				["2", "7"],
-				["3", "5"],
-				["4", "7"],
-				["5", "7"],
-				["6", "7"],
-				["7", "7"],
-				["8", "7"],
-				["9", "4"],
-				["10", "0"]
+				["1", "1"],
+				["2", "1"],
+				["3", "1"],
+				["4", "1"],
+				["5", "1"],
+				["6", "1"],
+				["7", "1"],
+				["8", "1"],
+				["9", "0"],
+				["1", "1", "1"]
 			]
-			expect(@game.get_score(frames)).to eq("108")
+			expect(@game.get_score(frames)).to eq("56")
 		end
-	
+
+		it "adds up the score of ten frames and takes into account spares" do
+			frames = [
+				["1", "1"],
+				["2", "/"],
+				["3", "1"],
+				["4", "1"],
+				["5", "/"],
+				["6", "1"],
+				["7", "1"],
+				["8", "1"],
+				["9", "0"],
+				["1", "1", "1"]
+			]
+			expect(@game.get_score(frames)).to eq("60")
+		end
 	end
 end 
 
