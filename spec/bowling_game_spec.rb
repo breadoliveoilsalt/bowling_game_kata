@@ -8,12 +8,21 @@ RSpec.describe BowlingGame do
 
 	describe "#score" do
 
-		it "returns 0 when there are no frames bowled" do 
-			game = BowlingGame.new
-			frames = []
-			expect(game.score(frames)).to eq(0)
+		before(:each) do 
+			@game = BowlingGame.new
 		end
-	
+		
+		it "returns 0 when there are no frames bowled" do 
+			frames = []
+			expect(@game.score(frames)).to eq(0)
+		end
+
+		it "adds up the score of one frame" do 
+			frames=[
+				["1", "2"]
+			]
+			expect(@game.score(frames)).to eq("3")
+		end
 	end
 end 
 
