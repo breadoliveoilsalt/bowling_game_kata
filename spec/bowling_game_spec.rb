@@ -48,11 +48,11 @@ RSpec.describe BowlingGame do
 			expect(@game.get_score(frames)).to eq("56")
 		end
 
-		it "adds up the score of ten frames and takes into account spares" do
+		it "adds up the score of ten frames and takes into account spares except for last frame" do
 			frames = [
 				["1", "1"],
 				["2", "/"],
-				["3", "1"],
+				["3", "1"],	
 				["4", "1"],
 				["5", "/"],
 				["6", "1"],
