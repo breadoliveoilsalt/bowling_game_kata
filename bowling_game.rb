@@ -9,8 +9,7 @@ class BowlingGame
 	
 		(0...frames.length).each do |frame|
 			pins_knocked_down_on_throws = frames[frame]
-			puts frames
-			if pins_knocked_down_on_throws[0] = "X"
+			if pins_knocked_down_on_throws[0] == "X"
 				next_frame_first_throw = frames[frame+1][0]
 				next_frame_second_throw = frames[frame+1][1]
 				score += 10 + next_frame_first_throw.to_i + next_frame_second_throw.to_i	
