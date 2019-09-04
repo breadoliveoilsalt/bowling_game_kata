@@ -63,6 +63,23 @@ RSpec.describe BowlingGame do
 			]
 			expect(@game.get_score(frames)).to eq("76")
 		end
+
+		it "takes into account multiple spares in a row, except for last frame" do
+			frames = [
+				["1", "/"],
+				["2", "/"],
+				["3", "/"],	
+				["4", "1"],
+				["5", "1"],
+				["6", "1"],
+				["7", "1"],
+				["8", "1"],
+				["9", "0"],
+				["1", "1", "1"]
+			]
+			expect(@game.get_score(frames)).to eq("86")
+		end
+	
 	end
 end 
 
