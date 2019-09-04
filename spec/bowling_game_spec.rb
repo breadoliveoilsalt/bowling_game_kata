@@ -93,7 +93,7 @@ RSpec.describe BowlingGame do
 				["9", "0"],
 				["1", "1", "1"]
 			]
-			expect(@game.get_score(frames)).to eq("86")
+			expect(@game.get_score(frames)).to eq("74")
 		end
 	
 	end
