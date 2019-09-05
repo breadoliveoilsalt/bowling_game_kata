@@ -1,12 +1,16 @@
+require 'pry'
+
 class BowlingGame
 
-	# Note assumptions I am now making about the 
-	# data structure for frames, especially when there is a strike
-	
-	def get_score(frames)
-	
-		score = 0 
-	
+	attr_writer :score
+	attr_reader :frames
+
+	def initialize(attributes)
+		@frames = attributes[:frames]
+		binding.pry
+	end
+
+	def get_score	
 		(0...frames.length).each do |frame|
 			pins_knocked_down_on_throws = frames[frame]
 			if pins_knocked_down_on_throws[0] == "X"
