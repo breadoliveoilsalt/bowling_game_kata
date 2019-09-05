@@ -111,5 +111,21 @@ RSpec.describe BowlingGame do
 			]
 			expect(@game.get_score(frames)).to eq("104")
 		end
+
+		it "takes into account two strikes in a row, except for last frame and no multiple strikes in a row" do
+			frames = [
+				["X", "-"],                                             	
+				["X", "-"],
+				["3", "0"],	
+				["X", "-"],
+				["5", "1"],
+				["6", "1"],
+				["7", "/"],
+				["8", "1"],
+				["9", "0"],
+				["1", "1", "1"]
+			]
+			expect(@game.get_score(frames)).to eq("104")
+		end
 	end
 end
